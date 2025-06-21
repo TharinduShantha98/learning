@@ -11,10 +11,11 @@ public class ScheduleService {
 
 
     @Scheduled(fixedRate = 2000)
-    @SchedulerLock(name = "sendEmailPromo",lockAtMostFor = "1m",lockAtLeastFor = "5s")
+    @SchedulerLock(name = "sendEmailPromo",lockAtMostFor = "5m",lockAtLeastFor = "5s")
     public void sendEmailPromotion() {
         System.out.println("Scheduled task at " + new Date());
 
     }
 
 }
+
