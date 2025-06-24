@@ -1,0 +1,38 @@
+syntax = "proto3";  // using Proto version 3
+package  customerManage; // group related messages/services
+
+// Each .proto file can contain options for code generation
+// This generates multiple Java classes (one per message/service) instead of one big class
+option java_multiple_files = true;
+
+// This sets the base Java package for the generated files
+option java_package = "com.learning.tutorials.grpc";
+
+// This sets the outer class name for the generated proto container class
+// (only relevant when java_multiple_files = false; otherwise, each type is separate)
+option java_outer_classname="EmployeeServiceProto";
+
+
+// like REST API endpoint
+service EmployeeService{
+  rpc getEmployee(EmployeeRequest) returns (EmployeeResponse);
+}
+
+
+// Define a request message
+message EmployeeRequest{
+  int32 employee_id = 1;
+
+}
+// Define a response message
+message EmployeeResponse{
+
+  int32 employee_id =1;
+  string name = 2;
+  string  address  = 3;
+
+}
+
+
+
+
